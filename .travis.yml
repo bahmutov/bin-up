@@ -1,0 +1,18 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: true
+node_js:
+  - '6'
+before_script:
+  - npm prune
+script:
+  - npm test
+  - npm run test-in-subfolder
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

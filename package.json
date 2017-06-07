@@ -1,7 +1,7 @@
 {
   "name": "bin-up",
   "description": "Finds an installed tool in node_modules/.bin folders from current up to the git root",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": "https://github.com/bahmutov/bin-up/issues",
   "bin": {
@@ -63,7 +63,9 @@
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "$(./bin/bin-up standard) --version",
-    "unit": "mocha src/*-spec.js"
+    "test-in-subfolder": "cd test/nested; npm test",
+    "unit": "mocha src/*-spec.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
     "ban-sensitive-files": "1.9.0",
@@ -74,6 +76,7 @@
     "mocha": "3.4.2",
     "nsp": "2.6.3",
     "pre-git": "3.15.0",
-    "standard": "10.0.2"
+    "standard": "10.0.2",
+    "semantic-release": "^6.3.6"
   }
 }

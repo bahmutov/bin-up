@@ -1,0 +1,12 @@
+{
+  "name": "nested",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "$(../../bin/bin-up standard) --version"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
