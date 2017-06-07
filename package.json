@@ -62,7 +62,7 @@
     "pretest": "npm run lint",
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
-    "test": "npm run unit",
+    "test": "$(./bin/bin-up standard) --version",
     "unit": "mocha src/*-spec.js"
   },
   "devDependencies": {
