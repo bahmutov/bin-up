@@ -8,15 +8,50 @@
 [![semantic-release][semantic-image] ][semantic-url]
 [![js-standard-style][standard-image]][standard-url]
 
+## Problem
+
+In you have a monorepo with multiple packages and want to share a tool, like
+`eslint`, you need to encode relative paths because NPM does not search bin
+aliases. Thus every nested `package.json` ends up with
+
+```json
+{
+  "scripts": {
+    "test": "../../../node_modules/.bin/eslint *.js"
+  }
+}
+```
+
+Nasty!
+
+## Solution
+
+Just like `$(npm bin)/<name>` returns the relative path to the bin alias
+*in the current folder*, the user space tool [bin-up][bin-up] looks in the
+current folder and up the folder chain until it reaches repo root folder
+or file system root. `bin-up` checks each `node_modules/.bin` on the way
+to see if has the tool alias `<name>`. If it finds one, it returns it and
+it can be executed. So any inner package can just install `npm i -D bin-up`
+and use it to find tools from parent folders by name
+
+```json
+{
+  "scripts": {
+    "test": "$(bin-up eslint) *.js"
+  }
+}
+```
+
+See [bahmutov/bin-up-demo](https://github.com/bahmutov/bin-up-demo) for
+a demo project.
+
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 6 or above.
 
 ```sh
-npm install --save bin-up
+npm install --save-dev bin-up
 ```
-
-## Use
 
 ### Small print
 
