@@ -27,7 +27,7 @@ Nasty!
 ## Solution
 
 Just like `$(npm bin)/<name>` returns the relative path to the bin alias
-*in the current folder*, the user space tool [bin-up][bin-up] looks in the
+*in the current folder*, this tool `bin-up` looks in the
 current folder and up the folder chain until it reaches repo root folder
 or file system root. `bin-up` checks each `node_modules/.bin` on the way
 to see if has the tool alias `<name>`. If it finds one, it returns it and
