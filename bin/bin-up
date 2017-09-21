@@ -32,6 +32,7 @@ if (args.length) {
   const execa = require('execa')
   execa.shell(programName, args, {stdio: 'inherit'})
     .catch(result => {
+      console.error('Problem running', programName, args)
       console.error(result.stderr)
       process.exit(result.code)
     })

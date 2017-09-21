@@ -10,6 +10,7 @@ before_script:
   - npm prune
 script:
   - npm test
+  - npm run test-direct
   - npm run test-in-subfolder
 after_success:
   - npm run semantic-release
