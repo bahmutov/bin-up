@@ -7,6 +7,13 @@ if (!programName) {
   console.error('usage: $(bin-up <name>)')
   console.error('for example:')
   console.error('$(bin-up mocha) --verbose test/*.js')
+
+  console.error('')
+  console.error('ALTERNATIVE:')
+  console.error('if you pass arguments the found tool will be invoked')
+  console.error('  bin-up mocha --verbose test/*.js')
+  console.error('will call mocha from bin-up')
+  console.error('which helps on Windows')
   process.exit(1)
 }
 
@@ -17,4 +24,18 @@ if (!found) {
     programName)
   process.exit(1)
 }
-console.log(found)
+
+const args = process.argv.slice(3)
+if (args.length) {
+  // we passed arguments to bin-up
+  // so we need to call the found tool with them
+  const execa = require('execa')
+  execa.shell(programName, args, {stdio: 'inherit'})
+    .catch(result => {
+      console.error(result.stderr)
+      process.exit(result.code)
+    })
+} else {
+  // just return the name of the tool
+  console.log(found)
+}

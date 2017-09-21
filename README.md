@@ -53,6 +53,12 @@ Requires [Node](https://nodejs.org/en/) version 6 or above.
 npm install --save-dev bin-up
 ```
 
+## Windows
+
+If you shell does not support nested calls like `$(bin-up eslint) src/*.js` you can
+pass the arguments to the tool directly. `bin-up` will execute the found tool with them.
+So you can lint on Windows like this `bin-up eslint src/*.js`
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2017
