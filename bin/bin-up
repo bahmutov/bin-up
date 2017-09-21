@@ -30,7 +30,7 @@ if (args.length) {
   // we passed arguments to bin-up
   // so we need to call the found tool with them
   const execa = require('execa')
-  execa.shell(programName, args, {stdio: 'inherit'})
+  execa(programName, args, {stdio: 'inherit'})
     .catch(result => {
       console.error('Problem running', programName, args)
       console.error(result.stderr)
