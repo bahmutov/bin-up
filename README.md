@@ -46,6 +46,22 @@ and use it to find tools from parent folders by name
 See [bahmutov/bin-up-demo](https://github.com/bahmutov/bin-up-demo) for
 a demo project.
 
+## Run found tool without arguments
+
+You can run the found tool without arguments
+
+```sh
+bin-up --run <tool name>
+```
+
+## Run found tool with arguments
+
+If you provide arguments to the tool itself, you can omit `--run`
+
+```sh
+bin-up <tool name> --verbose --another-arg
+```
+
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 6 or above.

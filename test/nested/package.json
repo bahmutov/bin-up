@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "$(../../bin/bin-up standard) --version",
-    "find:standard": "$(../../bin/bin-up standard)"
+    "find:standard": "$(../../bin/bin-up standard)",
+    "run:os": "node ../../bin/bin-up --run getos"
   },
   "keywords": [],
   "author": "",
