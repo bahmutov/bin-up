@@ -83,6 +83,6 @@
     "standard": "10.0.2"
   },
   "dependencies": {
-    "execa": "2.0.5"
+    "execa": "3.4.0"
   }
 }
