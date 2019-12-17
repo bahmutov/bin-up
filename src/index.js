@@ -25,7 +25,9 @@ function binUp (programName, startFolder = process.cwd()) {
   while (true) {
     const inFolder = toFoundPath(currentFolder)
     if (exists(inFolder)) {
-      console.error('Found %s', inFolder)
+      if (process.env.VERBOSE) {
+        console.error('Found %s', inFolder)
+      }
       found = inFolder
       break
     }

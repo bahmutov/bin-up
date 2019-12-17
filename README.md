@@ -76,6 +76,19 @@ If you shell does not support nested calls like `$(bin-up eslint) src/*.js` you 
 pass the arguments to the tool directly. `bin-up` will execute the found tool with them.
 So you can lint on Windows like this `bin-up eslint src/*.js`
 
+## Debugging
+
+Run this tool with `VERBOSE=1` environment variable
+
+```text
+$ $(./bin/bin-up standard) --version
+10.0.2
+
+$ VERBOSE=1 npm t
+Found /Users/gleb/git/bin-up/node_modules/.bin/standard
+10.0.2
+```
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2017
