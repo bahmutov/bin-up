@@ -5,7 +5,7 @@ cache:
 notifications:
   email: true
 node_js:
-  - '13'
+  - '12'
 script:
   - npm test
   - npm run test-direct
