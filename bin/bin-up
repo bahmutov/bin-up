@@ -50,16 +50,19 @@ if (runWithoutArgs || cliArguments.length) {
   // we passed arguments to bin-up
   // so we need to call the found tool with them
   const execa = require('execa')
-  execa(programName, cliArguments, { stdio: 'inherit' }).catch(result => {
-    console.error('Problem running command "%s" ', programName)
-    if (cliArguments.length) {
-      console.error('with arguments "%s"', cliArguments.join(' '))
+  execa(found, cliArguments, { stdio: 'inherit' }).catch(result => {
+    if (result.failed) {
+      console.error('Problem running command "%s" ', programName)
+      console.error('found at %s', found)
+      console.error(result.command)
+      console.error(result.errno)
+
+      if (result.stderr) {
+        console.error('STDERR:')
+        console.error(result.stderr)
+      }
+      process.exit(result.exitCode)
     }
-    if (result.stderr) {
-      console.error('STDERR:')
-      console.error(result.stderr)
-    }
-    process.exit(result.code)
   })
 } else {
   // just return the name of the tool
