@@ -61,7 +61,7 @@
     "license": "license-checker --production --onlyunknown --csv",
     "lint": "standard --verbose --fix bin/bin-up src/*.js",
     "pretest": "npm run lint",
-    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
+    "size": "npm pack --dry",
     "test": "$(./bin/bin-up standard) --version",
     "test-in-subfolder": "cd test/nested; npm test",
     "test-direct": "./bin/bin-up standard --version",
