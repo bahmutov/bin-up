@@ -5,7 +5,7 @@ const {join, normalize} = require('path')
 
 // TODO: respect npm prefix
 // https://docs.npmjs.com/files/folders
-const prefix = 'node_modules/.bin'
+const prefix = join('node_modules', '.bin')
 
 function isGitRootFolder (folder) {
   const gitRoot = '.git'

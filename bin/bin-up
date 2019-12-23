@@ -45,11 +45,19 @@ if (!found) {
   )
   process.exit(1)
 }
+if (process.env.VERBOSE) {
+  console.error('found tool "%s" at "%s"', programName, found)
+}
 
 if (runWithoutArgs || cliArguments.length) {
   // we passed arguments to bin-up
   // so we need to call the found tool with them
   const execa = require('execa')
+
+  if (process.env.VERBOSE) {
+    console.error('running', found, cliArguments)
+  }
+
   execa(found, cliArguments, { stdio: 'inherit' }).catch(result => {
     if (result.failed) {
       console.error('Problem running command "%s" ', programName)
