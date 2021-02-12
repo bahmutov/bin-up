@@ -79,7 +79,7 @@
     "license-checker": "11.0.0",
     "mocha": "3.4.2",
     "pre-git": "3.17.1",
-    "semantic-release": "17.3.1",
+    "semantic-release": "17.3.8",
     "standard": "10.0.2"
   },
   "dependencies": {
