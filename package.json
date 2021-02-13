@@ -80,7 +80,7 @@
     "mocha": "8.3.0",
     "pre-git": "3.17.1",
     "semantic-release": "17.3.9",
-    "standard": "10.0.3"
+    "standard": "16.0.3"
   },
   "dependencies": {
     "execa": "5.0.0"
